@@ -1,0 +1,52 @@
+{
+  "info": {
+    "name": "API Battle - FIFA",
+    "description": "Colecao com todas as rotas da API Battle (Arquiteturas de Software 2026/B). Variavel {{base_url}} default http://127.0.0.1:29480",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://127.0.0.1:29480" }
+  ],
+  "item": [
+    {
+      "name": "GET count - quantidade de jogadores",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{base_url}}/fifa/count", "host": ["{{base_url}}"], "path": ["fifa", "count"] }
+      }
+    },
+    {
+      "name": "GET todos - consulta todos jogadores",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{base_url}}/fifa", "host": ["{{base_url}}"], "path": ["fifa"] }
+      }
+    },
+    {
+      "name": "GET por id - 1 jogador (player_id)",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{base_url}}/fifa/id/4", "host": ["{{base_url}}"], "path": ["fifa", "id", "4"] }
+      }
+    },
+    {
+      "name": "GET por nacionalidade - regra Brazil",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{base_url}}/fifa/nat/brazil", "host": ["{{base_url}}"], "path": ["fifa", "nat", "brazil"] }
+      }
+    },
+    {
+      "name": "POST - insere um jogador",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"player_name\": \"Novo Jogador\",\n  \"age\": 25,\n  \"nationality\": \"Brazil\",\n  \"club\": \"Gremio\",\n  \"position\": \"ST\",\n  \"overall_rating\": 80,\n  \"potential_rating\": 88,\n  \"matches_played\": 10,\n  \"goals\": 5,\n  \"assists\": 2,\n  \"minutes_played\": 900,\n  \"market_value_million_eur\": 45.5,\n  \"contract_years_left\": 3,\n  \"injury_prone\": \"No\",\n  \"transfer_risk_level\": \"Low\"\n}"
+        },
+        "url": { "raw": "{{base_url}}/fifa", "host": ["{{base_url}}"], "path": ["fifa"] }
+      }
+    }
+  ]
+}
